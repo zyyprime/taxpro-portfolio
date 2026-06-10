@@ -1,11 +1,9 @@
 import { client, isSanityConfigured } from "./client";
-import { getAllPosts as getLocalPosts, getPostBySlug as getLocalPost } from "@/lib/blog";
 import type { BlogPost } from "@/types";
 import {
   blogPostsQuery,
   blogPostQuery,
   blogTagsQuery,
-  galleryQuery,
 } from "./queries";
 
 function mapSanityPost(post: any): BlogPost | null {
@@ -26,22 +24,30 @@ function mapSanityPost(post: any): BlogPost | null {
 }
 
 export async function fetchAllPosts(): Promise<BlogPost[]> {
-  if (!isSanityConfigured() || !client) return getLocalPosts();
+  if (!isSanityConfigured() || !client) {
+    const { getAllPosts } = await import("@/lib/blog");
+    return getAllPosts();
+  }
   try {
     const posts = await client.fetch(blogPostsQuery);
     return posts.map(mapSanityPost).filter(Boolean) as BlogPost[];
   } catch {
-    return getLocalPosts();
+    const { getAllPosts } = await import("@/lib/blog");
+    return getAllPosts();
   }
 }
 
 export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
-  if (!isSanityConfigured() || !client) return getLocalPost(slug);
+  if (!isSanityConfigured() || !client) {
+    const { getPostBySlug } = await import("@/lib/blog");
+    return getPostBySlug(slug);
+  }
   try {
     const post = await client.fetch(blogPostQuery, { slug });
     return mapSanityPost(post);
   } catch {
-    return getLocalPost(slug);
+    const { getPostBySlug } = await import("@/lib/blog");
+    return getPostBySlug(slug);
   }
 }
 
@@ -59,11 +65,4 @@ export async function fetchAllTags(): Promise<string[]> {
   }
 }
 
-export async function fetchGallery() {
-  if (!isSanityConfigured() || !client) return [];
-  try {
-    return await client.fetch(galleryQuery);
-  } catch {
-    return [];
-  }
-}
+

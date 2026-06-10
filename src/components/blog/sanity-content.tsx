@@ -2,7 +2,7 @@
 
 import { PortableText } from "@portabletext/react";
 import type { PortableTextComponents } from "@portabletext/react";
-import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 const components: PortableTextComponents = {
   block: {
@@ -15,20 +15,22 @@ const components: PortableTextComponents = {
     ),
   },
   types: {
-    image: ({ value }: any) => (
-      <div className="my-8 rounded-xl overflow-hidden">
-        <Image
-          src={value.asset?.url || ""}
-          alt={value.alt || ""}
-          width={800}
-          height={450}
-          className="w-full object-cover"
-        />
-        {value.caption && (
-          <p className="text-sm text-muted-foreground text-center mt-2">{value.caption}</p>
-        )}
-      </div>
-    ),
+    image: ({ value }: any) => {
+      const imageUrl = value?.asset ? urlFor(value)?.url() : null;
+      if (!imageUrl) return null;
+      return (
+        <div className="my-8 rounded-xl overflow-hidden">
+          <img
+            src={imageUrl}
+            alt={value.alt || ""}
+            className="w-full object-cover rounded-xl"
+          />
+          {value.caption && (
+            <p className="text-sm text-muted-foreground text-center mt-2">{value.caption}</p>
+          )}
+        </div>
+      );
+    },
     code: ({ value }: any) => (
       <pre className="bg-muted rounded-xl p-4 overflow-x-auto my-6 text-sm">
         <code>{value.code}</code>

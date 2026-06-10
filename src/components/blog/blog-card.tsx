@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowRight, FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { BlogPost } from "@/types";
 
@@ -20,13 +20,23 @@ export function BlogCard({ post, index = 0 }: Props) {
     >
       <Link href={`/blog/${post.slug}`} className="block h-full group">
         <div className="h-full rounded-2xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
-          <div className="h-48 bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/5 flex items-center justify-center">
-            <span className="text-5xl opacity-40">📄</span>
-          </div>
+          {post.coverImage ? (
+            <div className="h-48 overflow-hidden">
+              <img
+                src={post.coverImage}
+                alt={post.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          ) : (
+            <div className="h-48 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 flex items-center justify-center">
+              <FileText className="size-10 text-primary/30" />
+            </div>
+          )}
 
           <div className="p-5">
             <div className="flex flex-wrap gap-2 mb-3">
-              {post.tags.map((tag) => (
+              {post.tags.slice(0, 3).map((tag) => (
                 <Badge key={tag} variant="secondary" className="text-xs">
                   {tag}
                 </Badge>
