@@ -4,6 +4,7 @@ export interface BlogPost {
   date: string;
   excerpt: string;
   content: string;
+  body?: unknown[];
   tags: string[];
   coverImage?: string;
   author: string;

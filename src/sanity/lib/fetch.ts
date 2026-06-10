@@ -10,19 +10,17 @@ import {
 
 function mapSanityPost(post: any): BlogPost | null {
   if (!post) return null;
+  const isSanityBlock = Array.isArray(post.body) && post.body.length > 0 && post.body[0]?._type === "block";
   return {
     slug: post.slug?.current || "",
     title: post.title || "",
     date: post.publishedAt ? post.publishedAt.split("T")[0] : "",
     excerpt: post.excerpt || "",
-    content: post.body
-      ? (Array.isArray(post.body)
-          ? post.body.map((b: any) => b.children?.map((c: any) => c.text).join("") || "").join("\n\n")
-          : "")
-      : "",
+    content: isSanityBlock ? "" : (typeof post.body === "string" ? post.body : ""),
+    body: isSanityBlock ? post.body : undefined,
     tags: post.tags || [],
     coverImage: post.coverImage || "",
-    author: post.author || "TaxPro",
+    author: post.author || "葛杨",
     readingTime: post.readingTime || 1,
   };
 }
