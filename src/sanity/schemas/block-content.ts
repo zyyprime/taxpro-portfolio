@@ -45,9 +45,5 @@ export default defineType({
         { name: "caption", title: "图注", type: "string" },
       ],
     }),
-    defineArrayMember({
-      type: "code",
-      title: "代码块",
-    }),
   ],
 });

@@ -13,6 +13,11 @@
     "CLAUDE_CODE_EFFORT_LEVEL": "max"
   },
   "model": "haiku",
+  "language": "中文",
   "hasCompletedOnboarding": true,
-  "language": "中文"
+  "permissions": {
+    "allow": [
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm run build 2>&1)"
+    ]
+  }
 }
