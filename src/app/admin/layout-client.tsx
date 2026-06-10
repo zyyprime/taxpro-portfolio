@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -10,7 +11,11 @@ import {
   MessageSquare,
   Settings,
   ExternalLink,
+  LogOut,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const ADMIN_TOKEN_KEY = "admin_token";
 
 const navItems = [
   { href: "/admin", label: "仪表盘", icon: LayoutDashboard },
@@ -22,11 +27,45 @@ const navItems = [
 
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [authed, setAuthed] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+    if (token) {
+      setAuthed(true);
+    } else if (pathname !== "/admin/login") {
+      router.replace("/admin/login");
+      return;
+    }
+    setChecking(false);
+  }, [pathname, router]);
+
+  // Login page gets its own layout (no sidebar)
+  if (pathname === "/admin/login") {
+    return <>{children}</>;
+  }
+
+  if (checking) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="size-6 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+      </div>
+    );
+  }
+
+  if (!authed) return null;
+
+  const handleLogout = () => {
+    localStorage.removeItem(ADMIN_TOKEN_KEY);
+    router.push("/admin/login");
+  };
 
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <aside className="w-60 border-r border-border/40 bg-card shrink-0 hidden md:block">
+      <aside className="w-60 border-r border-border/40 bg-card shrink-0 hidden md:flex md:flex-col">
         <div className="p-4 border-b border-border/40">
           <Link href="/admin" className="flex items-center gap-2">
             <div className="gold-gradient size-8 rounded-lg flex items-center justify-center text-white font-bold text-sm">
@@ -35,7 +74,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <span className="font-semibold">管理后台</span>
           </Link>
         </div>
-        <nav className="p-3 space-y-1">
+        <nav className="p-3 space-y-1 flex-1">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -61,6 +100,17 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             </Link>
           </div>
         </nav>
+        <div className="p-3 border-t border-border/40">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleLogout}
+            className="w-full justify-start text-muted-foreground"
+          >
+            <LogOut className="size-4 mr-2" />
+            退出登录
+          </Button>
+        </div>
       </aside>
 
       {/* Mobile header */}
@@ -86,6 +136,9 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               {item.label}
             </Link>
           ))}
+          <button onClick={handleLogout} className="px-2 py-1.5 text-xs text-muted-foreground">
+            <LogOut className="size-3" />
+          </button>
         </div>
       </div>
 
