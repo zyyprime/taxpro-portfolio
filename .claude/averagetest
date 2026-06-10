@@ -1,0 +1,5 @@
+list=[]
+for i in range(5):
+    list.append(int(input('please input an int:  ')))
+
+print(sum(list)/len(list))

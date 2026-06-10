@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python d:\\\\workspace\\\\buble.py)",
+      "PowerShell(winget search \"OpenJS.NodeJS\" 2>$null)",
+      "PowerShell(choco search nodejs 2>$null)",
+      "PowerShell(scoop search nodejs 2>$null)",
+      "PowerShell(winget install \"OpenJS.NodeJS.LTS\" --silent --accept-package-agreements --disable-interactivity 2>&1)",
+      "PowerShell(winget install OpenJS.NodeJS.LTS --silent --accept-package-agreements 2>&1)",
+      "PowerShell(& \"${env:APPDATA}\\\\npm\\\\npm\" --version 2>&1; & \"${env:APPDATA}\\\\npm\\\\npx\" --version 2>&1)",
+      "PowerShell($nodePath = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2\"; & \"$nodePath\\\\node.exe\" --version; & \"$nodePath\\\\npm.cmd\" --version; & \"$nodePath\\\\npx.cmd\" --version)",
+      "PowerShell($nodeDir = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2\"; cd d:\\\\workspace; & \"$nodeDir\\\\npm.cmd\" config get registry 2>&1)",
+      "PowerShell($nodeDir = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2\"; cd d:\\\\workspace; & \"$nodeDir\\\\npm.cmd\" ping 2>&1)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; Get-ChildItem -Path d:\\\\workspace -Depth 0 | Where-Object { $_.Name -ne 'tax-portal-temp' -and $_.Name -ne 'buble.py' -and $_.Name -ne '提示词.txt' } | Select-Object Name, Mode)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm install framer-motion next-themes gray-matter lucide-react class-variance-authority clsx tailwind-merge next-mdx-remote@latest rehype-highlight rehype-katex remark-math katex zod 2>&1)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npx shadcn@latest init -d --force 2>&1)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npx shadcn@latest add card input badge dialog sheet dropdown-menu navigation-menu form textarea select separator tabs toast sonner command avatar hover-card scroll-area --yes 2>&1)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npx shadcn@latest add card input badge dialog sheet dropdown-menu navigation-menu form textarea select separator tabs sonner command avatar hover-card --yes 2>&1)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm run build 2>&1)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm run dev 2>&1)",
+      "WebFetch(domain:localhost)"
+    ]
+  }
+}

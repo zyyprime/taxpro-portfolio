@@ -1,0 +1,8 @@
+tmplist=[]
+for i in range(5):
+    tmplist.append(int(input('please input a number:   ')))
+
+print('max num:'+str(max(tmplist)))
+print('min num:'+str(min(tmplist)))
+
+

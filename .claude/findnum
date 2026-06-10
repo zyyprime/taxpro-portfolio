@@ -1,0 +1,12 @@
+num=int(input('please input a int(0,100):  '))
+cnt=0
+if num>0 and num<100:
+    for i in range(num+1,100):
+        if(i%num==0):
+            cnt+=1
+    if cnt==0:
+        print('not exsit!!!')
+    else:
+        print(cnt)
+else:
+    print('wrong input!!!')
