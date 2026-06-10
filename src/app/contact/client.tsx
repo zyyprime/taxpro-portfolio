@@ -20,12 +20,20 @@ export function ContactClient() {
 
     setSending(true);
 
-    // Simulate sending (replace with Resend / EmailJS)
-    await new Promise((r) => setTimeout(r, 1500));
-
-    setSending(false);
-    setSent(true);
-    toast.success("留言已发送，感谢您的联系！");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("发送失败");
+      setSent(true);
+      toast.success("留言已发送，感谢您的联系！");
+    } catch {
+      toast.error("发送失败，请稍后重试");
+    } finally {
+      setSending(false);
+    }
   };
 
   if (sent) {

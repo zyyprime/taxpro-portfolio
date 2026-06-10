@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllPosts, getAllTags } from "@/lib/blog";
+import { fetchAllPosts, fetchAllTags } from "@/sanity/lib/fetch";
 import { BlogListClient } from "./client";
 
 export const metadata: Metadata = {
@@ -7,9 +7,11 @@ export const metadata: Metadata = {
   description: "深度解读最新税收政策，分享税务实务操作经验与行业洞察",
 };
 
-export default function BlogPage() {
-  const posts = getAllPosts();
-  const tags = getAllTags();
+export default async function BlogPage() {
+  const [posts, tags] = await Promise.all([
+    fetchAllPosts(),
+    fetchAllTags(),
+  ]);
 
   return <BlogListClient posts={posts} tags={tags} />;
 }

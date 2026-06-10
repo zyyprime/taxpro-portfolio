@@ -18,7 +18,10 @@
       "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npx shadcn@latest add card input badge dialog sheet dropdown-menu navigation-menu form textarea select separator tabs sonner command avatar hover-card --yes 2>&1)",
       "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm run build 2>&1)",
       "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm run dev 2>&1)",
-      "WebFetch(domain:localhost)"
+      "WebFetch(domain:localhost)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm install sanity next-sanity @sanity/vision @sanity/image-url 2>&1)",
+      "PowerShell(Move-Item \"d:\\\\workspace\\\\sanity.config.ts\" \"d:\\\\workspace\\\\src\\\\sanity.config.ts\" -Force)",
+      "PowerShell(Move-Item \"d:\\\\workspace\\\\sanity.cli.ts\" \"d:\\\\workspace\\\\src\\\\sanity.cli.ts\" -Force)"
     ]
   }
 }

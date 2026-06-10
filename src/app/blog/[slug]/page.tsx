@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getAllPosts } from "@/lib/blog";
+import { fetchAllPosts, fetchPostBySlug } from "@/sanity/lib/fetch";
 import { BlogDetailClient } from "./client";
 
 interface Props {
@@ -8,13 +8,13 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await fetchAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await fetchPostBySlug(slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogDetailPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await fetchPostBySlug(slug);
   if (!post) notFound();
 
   return <BlogDetailClient post={post} />;
