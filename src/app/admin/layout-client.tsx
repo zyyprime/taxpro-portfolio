@@ -68,7 +68,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       <aside className="w-60 border-r border-border/40 bg-card shrink-0 hidden md:flex md:flex-col">
         <div className="p-4 border-b border-border/40">
           <Link href="/admin" className="flex items-center gap-2">
-            <div className="gold-gradient size-8 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+            <div className="rose-gradient size-8 rounded-lg flex items-center justify-center text-white font-bold text-sm">
               T
             </div>
             <span className="font-semibold">管理后台</span>
@@ -116,7 +116,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       {/* Mobile header */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl p-3 flex items-center gap-3">
         <Link href="/admin" className="flex items-center gap-2">
-          <div className="gold-gradient size-7 rounded-lg flex items-center justify-center text-white font-bold text-xs">
+          <div className="rose-gradient size-7 rounded-lg flex items-center justify-center text-white font-bold text-xs">
             T
           </div>
           <span className="font-semibold text-sm">管理后台</span>

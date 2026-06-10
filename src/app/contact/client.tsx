@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -78,9 +78,8 @@ export function ContactClient() {
           {/* Contact info */}
           <div className="space-y-4">
             {[
-              { icon: Mail, label: "邮箱", value: "contact@taxpro.com" },
-              { icon: Phone, label: "电话", value: "+86 138-0000-0000" },
-              { icon: MapPin, label: "地址", value: "北京市朝阳区" },
+              { icon: Mail, label: "邮箱", value: "geyang@taxpro.com" },
+              { icon: MapPin, label: "所在地", value: "南京市" },
             ].map((item) => (
               <motion.div
                 key={item.label}

@@ -24,17 +24,17 @@ const notoSansSC = Noto_Sans_SC({
 
 export const metadata: Metadata = {
   title: {
-    default: "TaxPro - 财税专业工作室 | 税务咨询与AI工具",
-    template: "%s | TaxPro",
+    default: "葛杨 | 税务专业工作室 · 澳大利亚CPA",
+    template: "%s | 葛杨税务",
   },
   description:
-    "资深税务顾问，提供国际税务、企业并购税务筹划、个税合规等专业服务。用专业解读税法，用科技赋能财税。",
-  keywords: ["税务咨询", "财税干货", "国际税务", "税务筹划", "AI财税工具"],
-  authors: [{ name: "TaxPro" }],
+    "葛杨，澳大利亚注册会计师，拥有税务机关、5A税务师事务所和制造业上市集团三段完整经历。擅长全税种合规、高新技术企业税务管理、跨境税务筹划及税务稽查应对。",
+  keywords: ["税务咨询", "葛杨", "澳大利亚CPA", "高新技术企业税务", "跨境税务", "税务筹划"],
+  authors: [{ name: "葛杨" }],
   openGraph: {
-    title: "TaxPro - 财税专业工作室",
-    description: "用专业解读税法，用科技赋能财税",
-    siteName: "TaxPro",
+    title: "葛杨 | 税务专业工作室",
+    description: "澳大利亚CPA · 十年专注制造业全税种实务与跨境税务",
+    siteName: "葛杨税务",
     locale: "zh_CN",
     type: "website",
   },

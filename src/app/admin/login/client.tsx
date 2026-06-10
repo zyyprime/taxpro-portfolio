@@ -45,7 +45,7 @@ export function AdminLogin() {
       <div className="w-full max-w-sm mx-auto px-4">
         <div className="rounded-2xl border border-border/50 bg-card p-8">
           <div className="text-center mb-6">
-            <div className="gold-gradient size-12 rounded-xl flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">
+            <div className="rose-gradient size-12 rounded-xl flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">
               T
             </div>
             <h1 className="text-xl font-bold">管理员登录</h1>

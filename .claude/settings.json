@@ -12,12 +12,14 @@
     "CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK": "1",
     "CLAUDE_CODE_EFFORT_LEVEL": "max"
   },
-  "model": "haiku",
-  "language": "中文",
-  "hasCompletedOnboarding": true,
   "permissions": {
     "allow": [
-      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm run build 2>&1)"
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; npm run build 2>&1)",
+      "Read(//c/Users/mr/Documents/xwechat_files/geyang990044_5833/msg/file/2026-04/**)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\mr\\\\.workbuddy\\\\binaries\\\\node\\\\versions\\\\22.22.2;$env:Path\"; cd d:\\\\workspace; node -e \"const pdf = require\\('pdf-parse'\\); console.log\\(typeof pdf, Object.keys\\(pdf\\)\\)\" 2>&1)"
     ]
-  }
+  },
+  "model": "haiku",
+  "language": "中文",
+  "hasCompletedOnboarding": true
 }

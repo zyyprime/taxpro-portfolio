@@ -15,52 +15,52 @@ import { cn } from "@/lib/utils";
 
 const items = [
   {
-    title: "税务咨询服务",
-    description: "国际税务筹划、企业并购税务架构设计、跨境交易合规咨询",
-    icon: Globe,
+    title: "全税种合规管理",
+    description: "增值税、企业所得税、个税等全税种申报与合规，累计服务30+企业，零滞纳金零罚款",
+    icon: FileText,
     href: "/about",
     className: "md:col-span-2 md:row-span-1",
     gradient: "from-primary/20 via-primary/5 to-transparent",
   },
   {
-    title: "专业文章",
-    description: "深度解读最新税收政策，分享实务操作经验",
-    icon: FileText,
-    href: "/blog",
-    className: "md:col-span-1 md:row-span-1",
-    gradient: "from-secondary/20 via-secondary/5 to-transparent",
-  },
-  {
-    title: "AI 智能工具",
-    description: "税务问答、发票识别、年终奖计算，让工作更高效",
-    icon: Sparkles,
-    href: "/tools",
-    className: "md:col-span-1 md:row-span-1",
-    gradient: "from-primary/20 via-primary/5 to-transparent",
-  },
-  {
-    title: "合规与筹划",
-    description: "企业所得税汇算清缴、增值税合规、转让定价文档准备",
+    title: "税务稽查应对",
+    description: "成功化解房产税、企业所得税等争议，涉及税款超500万元，妥善维护税企关系",
     icon: Shield,
     href: "/about",
     className: "md:col-span-1 md:row-span-1",
     gradient: "from-secondary/20 via-secondary/5 to-transparent",
   },
   {
-    title: "财税数据分析",
-    description: "利用数据分析技术，为企业提供精准的财税决策支持",
+    title: "AI 税务工具",
+    description: "税务问答、发票识别、年终奖计算，让税务工作更高效智能",
+    icon: Sparkles,
+    href: "/tools",
+    className: "md:col-span-1 md:row-span-1",
+    gradient: "from-accent/20 via-accent/5 to-transparent",
+  },
+  {
+    title: "高新企业税务管理",
+    description: "累计归集研发费用约4亿元，通过加计扣除预计可抵减企业所得税约900万元",
     icon: TrendingUp,
-    href: "/blog",
+    href: "/about",
     className: "md:col-span-1 md:row-span-1",
     gradient: "from-primary/20 via-primary/5 to-transparent",
   },
   {
+    title: "跨境税务",
+    description: "非贸付汇、转让定价文档（符合OECD标准）、常设机构风险排查，保障海外业务合规",
+    icon: Globe,
+    href: "/about",
+    className: "md:col-span-1 md:row-span-1",
+    gradient: "from-secondary/20 via-secondary/5 to-transparent",
+  },
+  {
     title: "年终奖计算器",
-    description: "一键对比不同计税方式，智能推荐最优方案",
+    description: "一键对比单独计税与并入综合所得，智能推荐最优方案",
     icon: Calculator,
     href: "/tools/bonus-calculator",
     className: "md:col-span-3 md:row-span-1",
-    gradient: "from-secondary/20 via-secondary/5 to-transparent",
+    gradient: "from-accent/20 via-accent/5 to-transparent",
   },
 ];
 
@@ -89,7 +89,7 @@ export function BentoGrid() {
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">专业服务</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            深耕税务领域多年，为企业提供全方位的财税解决方案
+            融合税务机关、事务所与企业的三维视角，为企业提供全链条税务解决方案
           </p>
         </motion.div>
 
